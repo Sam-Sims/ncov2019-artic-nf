@@ -1,4 +1,9 @@
 # ncov2019-artic-nf
+
+Fork to keep track of issues + fixes
+
+----------------------------
+
 A Nextflow pipeline for running the ARTIC network's fieldbioinformatics tools (https://github.com/artic-network/fieldbioinformatics), with a focus on ncov2019 
 
 WARNING - THIS REPO IS UNDER ACTIVE DEVELOPMENT AND ITS BEHAVIOUR MAY CHANGE AT **ANY** TIME. 
