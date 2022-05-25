@@ -79,7 +79,7 @@ process articMinIONMedaka {
     minionFinalConfig = minionRunConfigBuilder.join(" ")
 
     """
-    artic minion --medaka \
+    artic minion --medaka --medaka-model ${params.medaka_model} \
     ${minionFinalConfig} \
     --threads ${task.cpus} \
     --scheme-directory ${schemeRepo} \
