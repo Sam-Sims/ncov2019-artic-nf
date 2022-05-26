@@ -1,7 +1,7 @@
 // ARTIC ncov workflow
 
 // enable dsl2
-nextflow.preview.dsl = 2
+nextflow.enable.dsl = 2
 
 // import modules
 include {articDownloadScheme} from '../modules/artic.nf' 
@@ -80,7 +80,7 @@ workflow sequenceAnalysisMedaka {
 
     main:
       articDownloadScheme()
-
+      
       articGuppyPlex(ch_runFastqDirs.flatten())
 
       articMinIONMedaka(articGuppyPlex.out.fastq
