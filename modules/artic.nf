@@ -13,9 +13,19 @@ process articDownloadScheme{
     path "${params.schemeDir}" , emit: scheme
 
     script:
-    """
-    git clone ${params.schemeRepoURL} ${params.schemeDir}
-    """
+    if(params.ref && params.bed){
+        ref = file(params.ref)
+        bed = file(params.bed)
+        """
+        mkdir -p ${params.schemeDir}/${params.scheme}/${params.schemeVersion}/
+        cp ${ref} "${params.schemeDir}/${params.scheme}/${params.schemeVersion}/SARS-CoV-2.reference.fasta"
+        cp ${bed} "${params.schemeDir}/${params.scheme}/${params.schemeVersion}/SARS-CoV-2.primer.bed"
+        """
+    } else {
+        """
+        git clone ${params.schemeRepoURL} ${params.schemeDir}
+        """
+    }
 }
 
 process articGuppyPlex {
