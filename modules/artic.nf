@@ -9,7 +9,7 @@ process articDownloadScheme{
 
     output:
     path "${params.schemeDir}/${params.scheme}/${params.schemeVersion}/*.reference.fasta" , emit: reffasta
-    path "${params.schemeDir}/${params.scheme}/${params.schemeVersion}/*.primer.bed" , emit: bed
+    path "${params.schemeDir}/${params.scheme}/${params.schemeVersion}/*.scheme.bed" , emit: bed
     path "${params.schemeDir}" , emit: scheme
 
     script:
@@ -18,8 +18,8 @@ process articDownloadScheme{
         bed = file(params.bed)
         """
         mkdir -p ${params.schemeDir}/${params.scheme}/${params.schemeVersion}/
-        cp ${ref} "${params.schemeDir}/${params.scheme}/${params.schemeVersion}/SARS-CoV-2.reference.fasta"
-        cp ${bed} "${params.schemeDir}/${params.scheme}/${params.schemeVersion}/SARS-CoV-2.primer.bed"
+        cp ${ref} "${params.schemeDir}/${params.scheme}/${params.schemeVersion}/nCoV-2019.reference.fasta"
+        cp ${bed} "${params.schemeDir}/${params.scheme}/${params.schemeVersion}/nCoV-2019.scheme.bed"
         """
     } else {
         """
