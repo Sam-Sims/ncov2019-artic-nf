@@ -28,14 +28,19 @@ def printHelp() {
                               auto-detected and analysed in parallel.
       --fast5_pass            Directory containing fast5 files - usually fast5_pass. NOT REQUIRED FOR MEDAKA WORKFLOW.
       --sequencing_summary    Path to sequencing_summary.txt. NOT REQUIRED FOR MEDAKA WORKFLOW.
+      --medaka_model          Medaka model. NOT REQUIRED FOR NANOPOLISH WORKFLOW.
 
     Optional:
       --outdir                Output directory (Default: ./results)
  
-      --schemeVersion         ARTIC scheme version (Default: 'V3')
+      --schemeVersion         ARTIC scheme version (Default: 'V4.1')
       --schemeRepoURL         Repo to download your primer scheme from (Default: 'https://github.com/artic-network/artic-ncov2019')
       --schemeDir             Directory within schemeRepoURL that contains primer schemes (Default: 'primer_schemes')
       --scheme                Scheme name (Default: 'nCoV-2019')
+      --bed                   Path to bed file, also requires --ref
+                              Overrides --scheme* options. (Default: unset, download scheme from git)
+      --ref                   Path to reference fasta file, also requires --bed 
+                              Overrides --scheme* options. (Default: unset, download scheme from git)
  
       --min_length            Minimum read length for artic guppyplex (Default: 400)
       --max_length            Maximum read length for artic guppyplex (Default: 700)
